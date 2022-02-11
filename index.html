@@ -11,8 +11,19 @@
 
     <header>
         <h1>This is how I roll</h1>
-        <label for="amount"></label>
-        <input type="number" name="amount" id="amount" value=1>
+        <form>
+          <div>
+            <label for="amount">Dice amount</label>
+            <input type="number" name="amount" id="amount" value=1>
+          </div>
+          <div>
+            <label for="rerolls"> Allow re-rolls </label>
+            <input type="checkbox" name="rerolls" id="rerolls">
+            <p>if allow re-roll is check apears a form for what numbers can be ro-rolled -all ones, all bellow N result, all above n result. The matching dice can be "clicked on" to re-roll, save all the values to show accerted and failed array</p>
+          </div>
+         
+        </form>
+
         <input type="button" value="roll" onclick="roll()">
     </header>
     
