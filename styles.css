@@ -1,12 +1,33 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: green; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center ;
+  background-color: rgb(76, 97, 126);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
+#blackboard{
+  min-width: 250px;
+  width: 90vw;
+  min-height: 300px;
+  border-color: black;
+  border-width: 10px;
+  border-style: groove;
+  background-color: rgb(31, 31, 32);
+  color: azure;
+}
 #rollingArea {
   display: flex;
   flex-wrap: wrap;
+  background-color: green; 
+  min-width: 250px;
+  width: 90vw;
+  min-height: 300px;
+  border-color: black;
+  border-width: 10px;
+  border-style: groove;
 }
 
 .die {
