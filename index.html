@@ -10,35 +10,114 @@
   <body>
 
     <header>
-        <h1>This is how I roll</h1>
+        <h1 id="title"> "Dice Roller" </h1>
         <form>
           <div id="form">
-            <label for="amount">Dice amount</label>
-            <input type="number" name="amount" id="amount" value=1>
+            
           </div>
-         
+          <input type="button" value="roll" onclick="roll()" id="button">
         </form>
 
-        <input type="button" value="roll" onclick="roll()">
+        
     </header>
-    <div id="blackboard"></div>
-    <div id="rollingArea">
+    <div id="blackboard">
+  
+      <div id="row1">
+        <div class="die" id="ones">
+          <div class="dot topLeft  invisible"></div>
+          <div class="dot topCenter invisible"></div>
+          <div class="dot topright  invisible"></div>
+          <div class="dot centerrLeft  invisible"></div>
+          <div class="dot centerCenter"></div>
+          <div class="dot centerright  invisible"></div>
+          <div class="dot bottomLeft  invisible"></div>               
+          <div class="dot bottomCenter invisible"></div>              
+          <div class="dot bottomright  invisible"></div>
+      </div>
+      
+      <div class="die" id="two">
+        <div class="dot topLeft"></div>
+        <div class="dot topCenter invisible"></div>
+        <div class="dot topright  invisible"></div>
+        <div class="dot centerrLeft  invisible"></div>
+        <div class="dot centerCenter invisible"></div>
+        <div class="dot centerright  invisible"></div>
+        <div class="dot bottomLeft  invisible"></div>               
+        <div class="dot bottomCenter invisible"></div>              
+        <div class="dot bottomright"></div>
+      </div>
 
-      <!--example of the reciving html from js-->
-      <!--
-        <div class="die" id="die1">
+      
+      <div class="die" id="three">
+        <div class="dot topLeft"></div>
+        <div class="dot topCenter invisible"></div>
+        <div class="dot topright  invisible"></div>
+        <div class="dot centerrLeft  invisible"></div>
+        <div class="dot centerCenter"></div>
+        <div class="dot centerright  invisible"></div>
+        <div class="dot bottomLeft  invisible"></div>               
+        <div class="dot bottomCenter invisible"></div>              
+        <div class="dot bottomright"></div>
+      </div>
+      
+      <div class="die" id="four">
+        <div class="dot topLeft"></div>
+        <div class="dot topCenter invisible"></div>
+        <div class="dot topright"></div>
+        <div class="dot centerrLeft  invisible"></div>
+        <div class="dot centerCenter invisible"></div>
+        <div class="dot centerright  invisible"></div>
+        <div class="dot bottomLeft"></div>               
+        <div class="dot bottomCenter invisible"></div>              
+        <div class="dot bottomright"></div>
+      </div>
+
+      
+      <div class="die" id="five">
+        <div class="dot topLeft"></div>
+        <div class="dot topCenter invisible"></div>
+        <div class="dot topright"></div>
+        <div class="dot centerrLeft  invisible"></div>
+        <div class="dot centerCenter"></div>
+        <div class="dot centerright  invisible"></div>
+        <div class="dot bottomLeft"></div>               
+        <div class="dot bottomCenter invisible"></div>              
+        <div class="dot bottomright"></div>
+      </div>
+      
+      <div class="die" id="six">
         <div class="dot topLeft"></div>
         <div class="dot topCenter invisible"></div>
         <div class="dot topright"></div>
         <div class="dot centerrLeft"></div>
-        <div class="dot centerCenter"></div>
+        <div class="dot centerCenter invisible"></div>
         <div class="dot centerright"></div>
         <div class="dot bottomLeft"></div>               
         <div class="dot bottomCenter invisible"></div>              
         <div class="dot bottomright"></div>
       </div>
-      -->
       
+      </div>
+
+      <div id="row2">
+        <div class="result" id="result1">x0</div>
+        <div class="result" id="result2">x0</div>
+        <div class="result" id="result3">x0</div>
+        <div class="result" id="result4">x0</div>
+        <div class="result" id="result5">x0</div>
+        <div class="result" id="result6">x0</div>
+      </div>
+
+    </div>
+
+    <div id="rollingArea">
+      
+    </div>
+
+    <div id="amountArrows">
+      <div class="arrow-up"></div>
+      <p id="amount">1</p>
+      <div class="arrow-down"></div>
     </div>
 
   </body>

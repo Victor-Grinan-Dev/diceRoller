@@ -78,41 +78,96 @@ const sides = {
     6:six,
 }
 
-//functions
-const oneDieRoll = () => Math.floor(Math.random() * 6) + 1;
-//console.log(roll());
-
-
-const sidesHtmlCode = (num) => sides[num];
-    //num = sides from database, returns the html value of a num.
-//console.log(sidesHtmlCode(2));
-
-
-const addDieToText = (moreHtmlText, htmlText = "") =>  {
-
-    return htmlText += moreHtmlText;
-}//changeInnerHtml(areaHtml, sidesHtmlCode(oneDieRoll()));
-    //return areaHtml + sidesHtmlCode(oneDieRoll());
-//console.log(addDieToText(sides[4]));
-
-//loop on how many dice-side-text need the html
-const amountHandler = () => {
-    const amount = document.querySelector("#amount").value;
-    let allDiceText;
-
-    for (let i = 1; i <= amount; i++){
-        if (i === 1){
-            allDiceText = addDieToText(sidesHtmlCode(oneDieRoll()));
-        }else{
-            allDiceText = addDieToText(sidesHtmlCode(oneDieRoll()), allDiceText);
-        };
-    }
-    return allDiceText;
+const sidesStr = {
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
 }
 
-//const allDiceText = amountHandler();
-//console.log(allDiceText);
+class rollEvent {
+    constructor(amount){
+        this.initialRolls = amount,
+        this.one = 0,
+        this.two = 0,
+        this.three = 0,
+        this.four = 0,
+        this.five = 0,
+        this.six = 0
+    }
+}
 
+const newRoll = new rollEvent();
+
+let amount = 1;
+const plus = document.querySelector(".arrow-up");
+const minus = document.querySelector(".arrow-down");
+const displayAmount = document.querySelector("#amount");
+
+const result1 = document.querySelector("#result1");
+const result2 = document.querySelector("#result2");
+const result3 = document.querySelector("#result3");
+const result4 = document.querySelector("#result4");
+const result5 = document.querySelector("#result5");
+const result6 = document.querySelector("#result6");
+
+const add = () => {
+    amount++;   
+    displayAmount.textContent = amount;
+}
+
+const subs = () => {
+    if (amount > 1) {
+        amount--;
+        displayAmount.textContent = amount;
+    }
+
+}
+
+//***  FUNCTIONS ***
+
+//select random number from 1 to 6
+const oneDieRoll = () => Math.floor(Math.random() * 6) + 1;
+
+//select the correspondent die-face from DataBase
+const sidesHtmlCode = (num) =>  sides[num];
+
+//add the html str literal of the selected die-face to the final result 
+const addDieToText = (moreHtmlText, htmlText = "") =>  {
+    return htmlText += moreHtmlText;
+}
+const amountHandler = () => {
+
+    newRoll.one = 0;
+    newRoll.two = 0;
+    newRoll.three = 0;
+    newRoll.four = 0;
+    newRoll.five = 0;
+    newRoll.six = 0;
+
+    let allDiceText = ""; //all the str literal goes here
+
+    for (let i = 1; i <= amount; i++){
+
+        const oneDie = oneDieRoll();
+        newRoll[sidesStr[oneDie]]++;  
+        //console.log(oneDie, newRoll[sidesStr[oneDie]]);
+        allDiceText = addDieToText(sidesHtmlCode(oneDie), allDiceText);
+
+    }
+    console.log(newRoll.one, newRoll.two, newRoll.three, newRoll.four, newRoll.five, newRoll.six)
+
+    result1.textContent = `x${newRoll.one}`;
+    result2.textContent = `x${newRoll.two}`;
+    result3.textContent = `x${newRoll.three}`;
+    result4.textContent = `x${newRoll.four}`;
+    result5.textContent = `x${newRoll.five}`;
+    result6.textContent = `x${newRoll.six}`;
+
+    return allDiceText;
+}
 
 const changeInnerHtml = (elementId, newContent) => {
     const element = document.querySelector(`#${elementId}`);
@@ -125,7 +180,7 @@ const roll = () => {
     const amount = document.querySelector("#amount").value = 0;
 }
 
-
-
+plus.addEventListener("click", add);
+minus.addEventListener("click", subs);
 
 
