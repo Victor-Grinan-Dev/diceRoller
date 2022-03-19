@@ -95,7 +95,7 @@ body {
   width: 12rem;
   height: 12rem;
   border-radius: 30%;
-  background-color: rgb(224, 35, 21);
+  background-color: rgb(224, 35, 21); 
   color: azure;
   font-size: 50px;
   top: 85vh;
@@ -132,13 +132,15 @@ body {
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
   border-bottom: 60px solid #f00;
+  background-color: rgba(255, 0, 0, 0);
 }
 
 .arrow-down {
-  
   width: 0; 
   height: 0; 
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
   border-top: 60px solid #f00;
+  background-color: rgba(255, 0, 0, 0);
+
 }
